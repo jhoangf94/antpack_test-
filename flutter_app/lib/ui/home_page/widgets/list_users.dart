@@ -41,32 +41,41 @@ class _UserCard extends StatelessWidget {
         ?.copyWith(color: Colors.grey[600]);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            radius: 32,
-            child: Text(user.nameFirstCharacter),
-          ),
-          SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${user.name}, ${user.city}',
-                  style: Theme.of(context).textTheme.headline6,
+      padding: const EdgeInsets.only(top: 15, left: 16, right: 16),
+      child: Card(
+        elevation: 5,
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 26,
+                child: Text(user.nameFirstCharacter),
+              ),
+              SizedBox(width: 15),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${user.name}, ${user.city}',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          ?.copyWith(fontSize: 16),
+                    ),
+                    SizedBox(height: 10),
+                    Text('${user.email}',
+                        style: Theme.of(context).textTheme.subtitle1),
+                    Text('${user.companyName}', style: labelTheme),
+                    SizedBox(height: 10),
+                  ],
                 ),
-                Text('${user.email}',
-                    style: Theme.of(context).textTheme.subtitle1),
-                Text('${user.companyName}', style: labelTheme),
-                SizedBox(height: 10),
-                Divider(),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
