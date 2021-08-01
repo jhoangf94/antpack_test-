@@ -5,6 +5,7 @@ Una App en **Flutter** que consume el servicio de jsonplaceholder/users o el ser
 ## Pasos para correr el proyecto
 
 1. [Tener Flutter 2.2.0 instalado](https://flutter.dev/docs/get-started/install)
+1. Ejecutar `flutter pub get`
 
 ## Formas de correr el proyecto
 
