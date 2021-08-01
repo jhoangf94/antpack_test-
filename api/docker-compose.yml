@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  api:
+    container_name: antpack_api
+    # in case of any error restart service
+    restart: always
+    # build form dockerfile in root folder
+    build: .
+    ports:
+      - "5000:3000"
+    # use database instance
+    links:
+      - database
+    # copy files form host to container
+    volumes:
+      - "./:/usr/src/app"
+
+  # config databse instance
+  database:
+    container_name: api_mongo_db
+    image: mongo
+    ports:
+      - "27017:27017"
+    logging:
+      # disable loggin
+      driver: none
